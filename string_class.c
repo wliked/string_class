@@ -33,8 +33,9 @@ my_string::my_string(const char* str)  //common construtor with input parameter
 	}
     else
 	{
-	   pstr_ = new char[strlen(str)+1];
-	   assert(NULL != pstr_);
+	   char* temp = new char[strlen(str)+1];  //make sure if new is failed, pster_will not be affected
+	   assert(NULL != temp);
+	   pstr_ = temp;
 	   strcpy(pstr_,str);
 	}	
 }
@@ -47,9 +48,10 @@ my_string::my_string(const my_string& rhs)  //copy constructor; input parameter 
 	}
 	else
 	{
-	   pstr_= new char[strlen(rhs.pstr_)+1];
-	   assert(NULL !=pstr_);
-	   strcpy(pstr_,rhs.pstr_);
+	   char* temp = new char[strlen(str)+1];  //make sure if new is failed, pster_will not be affected
+	   assert(NULL != temp);
+	   pstr_ = temp;
+	   strcpy(pstr_,str);
 	}
 }
 
@@ -78,9 +80,10 @@ my_string& my_string::operator=(const my_string& rhs) //copy operator
 	}
 	else
 	{
-	   pstr_= new char[strlen(rhs.pstr_)+1];
-	   assert(NULL != pstr_);
-	   strcpy(pstr_,rhs.pstr_);
+	   char* temp = new char[strlen(str)+1];  //make sure if new is failed, pster_will not be affected
+	   assert(NULL != temp);
+	   pstr_ = temp;
+	   strcpy(pstr_,str);
 	}
 	return *this;
 }
