@@ -16,7 +16,7 @@ public:
   my_string(const my_string& rhs);
   my_string& operator=(const my_string& rhs);
   ~my_string();
-provate:
+private:
   char* pstr_;
 }
 
